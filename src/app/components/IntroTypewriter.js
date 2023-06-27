@@ -4,10 +4,16 @@ import { motion, stagger } from 'framer-motion'
 
 const staggerMenuItems = stagger(10, { startDelay: 10 });
 
+const prefixes = [
+  ' ',
+  ' ',
+  'n ',
+]
+
 const titles = [
   'Software Engineer    ',
-  'Web Developer    ',
-  'Machine Learning Researcher       ',
+  'Data Scientist    ',
+  'AI Researcher       ',
 ]
 
 const title_colors = [
@@ -22,6 +28,7 @@ const IntroTypewriter = () => {
   const text = textRef.current
   const [title, setTitle] = React.useState('')
   const [color, setColor] = React.useState('')
+  const [prefix, setPrefix] = React.useState(prefixes[0])
   const [index, setIndex] = React.useState(0)
   const [isDeleting, setIsDeleting] = React.useState(false)
   const [speed, setSpeed] = React.useState(120)
@@ -54,6 +61,7 @@ const IntroTypewriter = () => {
 
   React.useEffect(() => {
     setColor(title_colors[index])
+    setPrefix(prefixes[index])
   }, [index])
 
   return (
@@ -64,7 +72,7 @@ const IntroTypewriter = () => {
       transition={{ duration: 1 }}
       className="flex flex-row items-center justify-center"
     >
-      <h1 className="text-3xl mt-6 mr-4">I'm a </h1>
+      <h1 className="text-3xl mt-6 mr-3">{"I'm a" + prefix}</h1>
       <h1 className={`text-3xl mt-6 ${color}`}>{title}</h1>
     </motion.div>
   )
