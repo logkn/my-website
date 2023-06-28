@@ -34,7 +34,7 @@ const Header = ({current_page}) => {
             {pages.map((page, index) => {
                 if (page === current_page) {
                     return (
-                        <div className='text-white text-xl mr-20'>
+                        <div key={index} className='text-white text-xl mr-20'>
                             <Link href={paths[index]} key={index}>
                                 {page}
                             </Link>
@@ -42,7 +42,7 @@ const Header = ({current_page}) => {
                     )
                 } else {
                     return (
-                        <div className='text-gray-400 text-xl mr-20'>
+                        <div key={index} className='text-gray-400 text-xl mr-20'>
                             <Link href={paths[index]} key={index}>
                                 {page}
                             </Link>
