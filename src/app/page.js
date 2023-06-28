@@ -18,7 +18,7 @@ export default function Home() {
       ">
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/profile.jpg"
+            src="/profile.JPG"
             className="mx-auto w-100 h-100 rounded-full shadow-md shadow-black"
             width={300}
             height={300}
