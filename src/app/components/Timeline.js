@@ -36,8 +36,8 @@ const Timeline = () => {
 
   return (
     <div>
-        {contents.map((exp) => (
-            <TimelineCard exp={exp} />
+        {contents.map((exp, index) => (
+            <TimelineCard key={index} exp={exp} />
         ))}
     </div>
   )
