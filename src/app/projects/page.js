@@ -23,7 +23,7 @@ const Projects = () => {
             <h1>Projects</h1>
             <div className='flex gap-24'>
                 {projects.map((project) => (
-                    <ProjectThumbnail name={project.name} url={project.url} description={project.description}/>
+                    <ProjectThumbnail key={project.name} name={project.name} url={project.url} description={project.description}/>
                 ))}
             </div>
         </div>
