@@ -29,7 +29,7 @@ const Header = ({current_page}) => {
     var cname = caveat_brush.className
     cname += " text-3xl mr-20 flex self-start"
     return (
-        <div className="flex absolute w-full flex-row items-center justify-start p-3 bg-black bg-opacity-75">
+        <div className="sticky top-0 flex w-full flex-row items-center justify-start p-3 bg-black bg-opacity-75">
             <h1 style={{color: "white"}} className={cname}>LoganKnapp</h1>
             {pages.map((page, index) => {
                 if (page === current_page) {
