@@ -1,13 +1,19 @@
 import React from 'react'
-import { Caveat_Brush } from 'next/font/google'
+import { Splash } from 'next/font/google'
 
-const caveat_brush = Caveat_Brush({ subsets: ['latin'], weight: ['400']})
+const font_class = Splash({ subsets: ['latin'], weight: ['400']})
 
 const NameIcon = () => {
-    var cname = caveat_brush.className
-    cname += " text-3xl self-start"
+    var cname = font_class.className
+    cname += " text-sm self-start"
   return (
-    <h1 style={{color: "white"}} className={cname}>LoganKnapp</h1>
+    <div style={{color: "white"}} className={cname}>
+      <div className="flex flex-col text-2xl">
+        <p >Logan</p>
+        <p className="ml-3 -mt-4">Knapp</p>
+      </div>
+    </div>
+    
   )
 }
 

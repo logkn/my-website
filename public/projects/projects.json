@@ -1,0 +1,10 @@
+[{
+        "title": "FluxNCPS.jl",
+        "md": "/projects/md/fluxncps.mdx",
+        "git": "https://github.com/logkn/FluxNCPs.jl",
+        "header": "A Julia implementation of Neural Circuit Policies for the Flux.jl environment"
+},{
+        "title": "FinML.jl",
+        "md": "/projects/md/finml.mdx",
+        "header": "A library to import, handle, visualize, and perform machine learning on financial data in Julia"
+}]

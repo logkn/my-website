@@ -1,0 +1,22 @@
+# FinML.jl
+
+*FinML.jl* is a Julia library for experimenting with machine learning (including reinforcement learning algorithms) applied to financial data in Julia.
+
+## Why Julia?
+While similar libraries exist in Python, they are often restricted by the size of the training data. [DataFrames.jl](https://dataframes.juliadata.org/stable/) or [InMemoryDatasets.jl](https://docs.juliahub.com/InMemoryDatasets/cS87e/0.6.2/) tends to be over an order of magnitude faster than Pandas for handling large datasets.
+
+For reference
+1. Importing from three OHLCV CSVs
+2. Combining into one Dataset with over 10 million rows, and
+3. Reindexing to account for missing datetimes for all assets
+takes FinML.jl only 3 seconds
+
+## Features
+1. Importing (single or multi CSV)
+2. Adding technical indicators with interpretable strings
+3. Per-asset grouping
+4. Customizable environment generation for RL
+5. Strategy creation
+6. Detailed strategy benchmarking and comparison
+
+*Expected to release on GitHub by end of 2023*

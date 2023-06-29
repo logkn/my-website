@@ -1,7 +1,6 @@
 import React from 'react'
 import NameIcon from './NameIcon'
 import Link from 'next/link'
-import { Caveat_Brush } from 'next/font/google'
 
 
 const pages = [
@@ -18,7 +17,6 @@ const paths = [
     '/contact',
 ]
 
-const caveat_brush = Caveat_Brush({ subsets: ['latin'], weight: ['400']})
 
 
 // A top navbar that links to the different pages of the website
@@ -26,11 +24,11 @@ const caveat_brush = Caveat_Brush({ subsets: ['latin'], weight: ['400']})
 // The current page is highlighted in a different color
 
 const Header = ({current_page}) => {
-    var cname = caveat_brush.className
-    cname += " text-3xl mr-20 flex self-start"
     return (
         <div className="sticky top-0 flex w-full flex-row items-center justify-start p-3 bg-black bg-opacity-75">
-            <h1 style={{color: "white"}} className={cname}>LoganKnapp</h1>
+            <div className="ml-2 mr-8">
+                <NameIcon />
+            </div>
             {pages.map((page, index) => {
                 if (page === current_page) {
                     return (

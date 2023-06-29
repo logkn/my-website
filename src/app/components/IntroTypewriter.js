@@ -73,7 +73,7 @@ const IntroTypewriter = () => {
       className="flex flex-row items-center justify-center"
     >
       <h1 className="text-3xl mt-6 mr-3">{"I'm a" + prefix}</h1>
-      <h1 className={`text-3xl mt-6 ${color}`}>{title}</h1>
+      <h1 className={`text-3xl mt-6 font-mono ${color}`}>{title + "|"}</h1>
     </motion.div>
   )
 }

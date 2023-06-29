@@ -1,32 +1,32 @@
 import React from 'react'
 import Header from '../components/Header'
 import ProjectThumbnail from './components/ProjectThumbnail'
-
-const projects = [
-    {
-        name: "Project 1",
-        url: "https://www.google.com",
-        description: "This is a project"
-    },
-    {
-        name: "Project 2",
-        url: "https://www.google.com",
-        description: "This is a project"
-    },
-]
+import projects_json from 'public/projects/projects.json'
 
 const Projects = () => {
+
   return (
     <div>
         <Header current_page={"Projects"}/>
-        <div className='flex flex-col items-center p-24'>
-            <h1>Projects</h1>
-            <div className='flex gap-24'>
-                {projects.map((project) => (
-                    <ProjectThumbnail key={project.name} name={project.name} url={project.url} description={project.description}/>
+        <div className="flex flex-col justify-center">
+            <div>
+                <h1 className='p-4 shadow-md shadow-neutral text-6xl text-white bg-white bg-opacity-10 font-mono'>
+                    /projects
+                </h1>
+            </div>
+            <div className='flex grid-flow-row gap-16 m-8'>
+                {projects_json.map((project) => (
+                    <ProjectThumbnail 
+                        key={project.title} 
+                        name={project.title} 
+                        giturl={project.git} 
+                        header={project.header}
+                        pageurl={project.md}
+                    />
                 ))}
             </div>
         </div>
+        
     </div>
   )
 }

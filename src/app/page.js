@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <Header current_page="Home" />
       <div className="
-        flex flex-col items-center p-24
+        flex flex-col items-center py-8
       ">
         <div className="flex flex-col items-center justify-center">
           <Image
@@ -24,12 +24,12 @@ export default function Home() {
             height={300}
           />
           <span className="flex">
-            <h1 className="text-6xl mt-6 mr-4">Hi, I'm </h1>
-            <h1 className="text-6xl mt-6 text-teal-300"><b>Logan</b></h1>
+            <h1 className="text-6xl font-mono tracking-tighter mt-6 mr-6">ᐳ Hi,I'm</h1>
+            <h1 className="text-6xl font-mono tracking-tighter mt-6 text-teal-300"> Logan</h1>
           </span>
           <IntroTypewriter />
         </div>
-        <div className='my-32'>
+        <div className='my-12'>
           <Socials />
         </div>
       </div>
