@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Constellation from './components/Constellation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +14,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='text-white w-full min-h-screen bg-gradient-to-br from-indigo-950 to-fuchsia-950'>
+      <body className='text-white font-mono w-full min-h-screen bg-gradient-to-t from-violet-950 to-black'>
+        <Constellation/>
         {children}
       </body>
     </html>

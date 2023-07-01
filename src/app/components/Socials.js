@@ -3,12 +3,12 @@ import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
 const Socials = () => {
   return (
-    <div className='flex gap-24'>
+    <div className="socials justify-end mr-10 flex flex-row gap-16">
         <a target="_blank" href="https://github.com/logkn/" rel="noopener noreferrer">
-            <BsGithub size={80} />
+            <BsGithub size={40} />
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/logan-knapp/" rel="noopener noreferrer">
-            <BsLinkedin size={80} />
+            <BsLinkedin size={40} />
         </a>
     </div>
   )

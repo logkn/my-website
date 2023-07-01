@@ -1,6 +1,7 @@
 import React from 'react'
 import NameIcon from './NameIcon'
 import Link from 'next/link'
+import Socials from './Socials'
 
 
 const pages = [
@@ -25,29 +26,32 @@ const paths = [
 
 const Header = ({current_page}) => {
     return (
-        <div className="sticky top-0 flex w-full flex-row items-center justify-start p-3 bg-black bg-opacity-75">
+        <div className="sticky top-0 flex w-full flex-row items-center justify-start p-3 bg-black bg-opacity-75 gap-10 backdrop-blur-md">
             <div className="ml-2 mr-8">
                 <NameIcon />
             </div>
             {pages.map((page, index) => {
                 if (page === current_page) {
                     return (
-                        <div key={index} className='text-white text-xl mr-20'>
+                        <div key={index} className='font-mono text-white text-xl'>
                             <Link href={paths[index]} key={index}>
-                                {page}
+                                {"/" + page}
                             </Link>
                         </div>
                     )
                 } else {
                     return (
-                        <div key={index} className='text-gray-400 text-xl mr-20'>
+                        <div key={index} className='font-mono text-gray-400 text-xl'>
                             <Link href={paths[index]} key={index}>
-                                {page}
+                                {"/" + page}
                             </Link>
                         </div>
                     )
                 }
             })}
+            <div className="flex-grow">
+                <Socials />
+            </div>
         </div>
     )
 }

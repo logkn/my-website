@@ -1,70 +1,75 @@
 'use client'
-import React, {useRef} from 'react'
-import { motion, stagger } from 'framer-motion'
+import React, { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-const staggerMenuItems = stagger(10, { startDelay: 10 });
+const IntroTypewriter = ({ titles, title_colors, prefixes, stick, initialDelay = 2000}) => {
+  const words = titles
+  const textRef = useRef(null);
+  const [title, setTitle] = useState('');
+  const [color, setColor] = useState('');
+  const [prefix, setPrefix] = useState(prefixes[0]);
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [speed, setSpeed] = useState(120);
+  const [extraDelay, setExtraDelay] = useState(false);
+  const [isStuck, setIsStuck] = useState(false);
+  const [start, setStart] = useState(false)
 
-const prefixes = [
-  ' ',
-  ' ',
-  'n ',
-]
+  const cursor = isStuck ? '' : '|';
 
-const titles = [
-  'Software Engineer    ',
-  'Data Scientist    ',
-  'AI Researcher       ',
-]
-
-const title_colors = [
-  'text-orange-300',
-  'text-fuchsia-300',
-  'text-indigo-300',
-]
-
-const IntroTypewriter = () => {
-  // animate the text to look like a typewriter
-  const textRef = useRef(null)
-  const text = textRef.current
-  const [title, setTitle] = React.useState('')
-  const [color, setColor] = React.useState('')
-  const [prefix, setPrefix] = React.useState(prefixes[0])
-  const [index, setIndex] = React.useState(0)
-  const [isDeleting, setIsDeleting] = React.useState(false)
-  const [speed, setSpeed] = React.useState(120)
-
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
-      if (isDeleting) {
-        setTitle(title.substring(0, title.length - 1))
-      } else {
-        setTitle(title + titles[index].charAt(title.length))
+      setStart(true)
+    }, initialDelay);
+
+    return () => clearTimeout(timer);
+  }, [initialDelay]);
+
+  useEffect(() => {
+    if (!start) return;
+    const timer = setTimeout(() => {
+      if (extraDelay) {
+        setExtraDelay(false);
+        setTitle(title + " ");
       }
-    }, speed)
+      else if (isDeleting) {
+        setTitle(title.substring(0, title.length - 1));
+      } else {
+        setTitle(title + words[index].charAt(title.length));
+      }
+    }, speed);
 
-    if (isDeleting) {
-      setSpeed(30)
+    if (extraDelay) {
+      setSpeed(500);
+    } else if (isDeleting) {
+      setSpeed(30);  // Adjust extra delay time here
     } else {
-      setSpeed(120)
+      setSpeed(120);
     }
 
-    if (!isDeleting && title === titles[index]) {
-      setSpeed(1000)
-      setIsDeleting(true)
+    if (!isDeleting && title === words[index]) {
+      if (stick && index === words.length - 1) {
+        setIsStuck(true);
+        return;
+      }
+      setExtraDelay(true);
+      setIsDeleting(true);
     } else if (isDeleting && title === '') {
-      setIsDeleting(false)
-      setIndex((index + 1) % titles.length)
+      setIsDeleting(false);
+      setExtraDelay(false);
+      setIndex((index + 1) % words.length);
     }
 
-    return () => clearTimeout(timer)
-  })
+    return () => clearTimeout(timer);
+  }, [title, isDeleting, start]);
 
-  React.useEffect(() => {
-    setColor(title_colors[index])
-    setPrefix(prefixes[index])
-  }, [index])
+  useEffect(() => {
+    setColor(title_colors[index]);
+    setPrefix(prefixes[index]);
+  }, [index]);
 
   return (
+    start &&
     <motion.div
       ref={textRef}
       animate={{ opacity: 1 }}
@@ -72,10 +77,10 @@ const IntroTypewriter = () => {
       transition={{ duration: 1 }}
       className="flex flex-row items-center justify-center"
     >
-      <h1 className="text-3xl mt-6 mr-3">{"I'm a" + prefix}</h1>
-      <h1 className={`text-3xl mt-6 font-mono ${color}`}>{title + "|"}</h1>
+      <h1 className="text-3xl font-mono mt-6 mr-3">{prefix}</h1>
+      <h1 className={`text-3xl mt-6 font-mono ${color}`}>{title + cursor}</h1>
     </motion.div>
-  )
-}
+  );
+};
 
-export default IntroTypewriter
+export default IntroTypewriter;
