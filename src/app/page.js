@@ -29,7 +29,7 @@ export default function Home() {
         <div className='m-6'>
               <Image
                 src="/pfp.jpg"
-                className="mx-auto rounded-full shadow-md shadow-gray-900"
+                className="mx-auto rounded-full shadow-xl shadow-black"
                 width={300}
                 height={300}
               />

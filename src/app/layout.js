@@ -14,8 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='text-white font-mono w-full min-h-screen bg-gradient-to-t from-violet-950 to-black'>
-        <Constellation/>
+      <body className='text-white font-mono w-full min-h-screen bg-gradient-to-t from-indigo-950 to-black'>
+        <div className='-z-40'>
+          <Constellation/>
+        </div>
         {children}
       </body>
     </html>

@@ -10,7 +10,7 @@ const Projects = () => {
         <Header current_page={"Projects"}/>
         <div className="flex flex-col justify-center">
             <div>
-                <h1 className='p-4 shadow-md shadow-neutral text-6xl text-white bg-white bg-opacity-10 font-mono'>
+                <h1 className='p-4 mt-4 shadow-md backdrop-blur-sm backdrop-brightness-200 shadow-neutral text-6xl text-white bg-white/20 font-mono'>
                     /projects
                 </h1>
             </div>

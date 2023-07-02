@@ -7,8 +7,8 @@ function generateRandomPoints(n) {
     const points = [];
     for (let i = 0; i < n; i++) {
         points.push({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight
+            x: `${Math.random() * 100}%`,
+            y: `${Math.random() * 100}%`,
         });
     }
     return points;
@@ -21,11 +21,11 @@ function calculateDistance(point1, point2) {
 }
 
 const Star = ({ point }) => {
-    const randsize = Math.random() * 3 + 1;
+    const randsize = Math.random() * 4 + 1;
     return (
         <motion.div
+            className='absolute'
             style={{
-                position: "absolute",
                 top: point.y,
                 left: point.x,
                 width: randsize,
@@ -50,17 +50,19 @@ const Star = ({ point }) => {
 
 const Constellation = () => {
     // generate a random number between 10 and 20
-    const num_stars = Math.floor(Math.random() * 20) + 20;
+    const num_stars = 50;
 
     const star_points = generateRandomPoints(num_stars);
     return (
-    <div className='absolute -z-10'>
-        {star_points.map((point, index) => {
-            return (
-                <Star point={point} key={index} />
-            )
-        }
-        )}
+    <div className='stars-outter -z-50 absolute w-screen h-screen'>
+        <div className='overflow-hidden'>
+            {star_points.map((point, index) => {
+                return (
+                    <Star point={point} key={index} />
+                )
+            }
+            )}
+        </div>
     </div>
   )
 }
